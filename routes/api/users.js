@@ -5,6 +5,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
+<<<<<<< HEAD
+=======
+
+>>>>>>> ba3e5ef6d4665d7837d3ebe30b24e37249c3947f
 
 // Load User Model
 const User = require('../../models/User');
@@ -118,5 +122,36 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 
 
 
+//@route GET api/users/current
+//@desc return current user
+//@access Private
+
+router.get('/current', passport.authenticate('jwt', { session: false}), (req, res) => {
+  res.json({
+      id: req.user.id,
+      name: req.user.name,
+      email: req.user.email
+  });  
+});
+
+
+
+
+
+
+
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
